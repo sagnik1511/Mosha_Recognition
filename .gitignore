@@ -1,0 +1,5 @@
+__pycache__/
+checkpoint/
+cv-env/
+dataset/mosquito_dataset/
+metadata.csv
