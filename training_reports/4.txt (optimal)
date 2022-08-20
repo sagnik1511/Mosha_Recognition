@@ -1,0 +1,60 @@
+{'seed': 42, 'dataset_config': 'base', 'model_config': 'simple_network', 'optimizer': 'adam', 'loss': 'categorical_crossentropy', 'metrics': ['accuracy'], 'max_epochs': 20, 'steps_per_epoch': None, 'verbose': 1, 'callbacks': [{'name': 'checkpoint', 'monitor': 'val_loss', 'save_best': True, 'save_weights': False, 'filepath': 'results/checkpoint1'}, {'name': 'earlystop', 'monitor': 'val_loss', 'restore_best_weights': True, 'patience': 8}], 'result_figure_path': 'results/training_result.jpg'}
+{'metadata_path': 'dataset\\metadata.csv', 'seed': 42, 'x_id': 'path', 'y_id': 'species', 'data_root': 'dataset\\mosquito_dataset', 'batch_size': 64, 'height': 128, 'width': 128, 'validation_split': 0.2, 'vertical_flip': True, 'horizontal_flip': True, 'zoom_range': 0.4, 'samplewise_std_normalization': True}
+E:\cv_api\cv-env\lib\site-packages\keras\preprocessing\image.py:1304: UserWarning: This ImageDataGenerator specifies `samplewise_std_normalization`, which overrides setting of `samplewise_center`.
+  warnings.warn('This ImageDataGenerator specifies '
+Found 1200 validated image filenames belonging to 3 classes.
+Found 300 validated image filenames belonging to 3 classes.
+{'Aedes_aegypti': 0, 'Aedes_albopictus': 1, 'Culex_quinquefasciatus': 2}
+[['input', (128, 128, 3)], ['conv', [16, 7, 1, 'same', 'relu']], ['maxpool', [2]], ['conv', [32, 5, 1, 'same', 'relu']], ['maxpool', [2]], ['dropout', [0.4]], ['conv', [32, 3, 2, 'same', 'relu']], ['dropout', [0.2]], ['flatten'], ['dense', [1024, 'relu']], ['dense', [3, 'softmax']]]
+2022-08-20 18:34:29.818789: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-08-20 18:34:29.818905: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-08-20 18:34:29.819562: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2     
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Epoch 1/20
+19/19 [==============================] - ETA: 0s - loss: 1.2858 - accuracy: 0.4125WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 1.2858 - accuracy: 0.4125 - val_loss: 1.9154 - val_accuracy: 0.0733
+Epoch 2/20
+19/19 [==============================] - ETA: 0s - loss: 0.9541 - accuracy: 0.5450WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jitEpoch 5/20
+19/19 [==============================] - ETA: 0s - loss: 0.7528 - accuracy: 0.6625WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 21s 1s/step - loss: 0.7528 - accuracy: 0.6625 - val_loss: 2.2375 - val_accuracy: 0.1233                                  Epoch 6/20
+19/19 [==============================] - ETA: 0s - loss: 0.6313 - accuracy: 0.7225WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 21s 1s/step - loss: 0.6313 - accuracy: 0.7225 - val_loss: 2.3118 - val_accuracy: 0.1500                                  Epoch 7/20
+19/19 [==============================] - ETA: 0s - loss: 0.5775 - accuracy: 0.7467WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 21s 1s/step - loss: 0.5775 - accuracy: 0.7467 - val_loss: 2.2124 - val_accuracy: 0.2433                                  Epoch 8/20
+19/19 [==============================] - ETA: 0s - loss: 0.5343 - accuracy: 0.7550WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 21s 1s/step - loss: 0.5343 - accuracy: 0.7550 - val_loss: 1.7628 - val_accuracy: 0.3733                                  Epoch 9/20
+19/19 [==============================] - ETA: 0s - loss: 0.5460 - accuracy: 0.7600WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 21s 1s/step - loss: 0.5460 - accuracy: 0.7600 - val_loss: 1.9961 - val_accuracy: 0.1533                                  Epoch 10/20
+19/19 [==============================] - ETA: 0s - loss: 0.4987 - accuracy: 0.7658WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 21s 1s/step - loss: 0.4987 - accuracy: 0.7658 - val_loss: 2.3304 - val_accuracy: 0.1400
+Epoch 11/20
+19/19 [==============================] - ETA: 0s - loss: 0.4576 - accuracy: 0.7925WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 0.4576 - accuracy: 0.7925 - val_loss: 2.3170 - val_accuracy: 0.1400
+Epoch 12/20
+19/19 [==============================] - ETA: 0s - loss: 0.4319 - accuracy: 0.8017WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 0.4319 - accuracy: 0.8017 - val_loss: 1.5841 - val_accuracy: 0.3267
+Epoch 13/20
+19/19 [==============================] - ETA: 0s - loss: 0.4113 - accuracy: 0.8167WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 0.4113 - accuracy: 0.8167 - val_loss: 2.0680 - val_accuracy: 0.2533
+Epoch 14/20
+19/19 [==============================] - ETA: 0s - loss: 0.3773 - accuracy: 0.8392WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 0.3773 - accuracy: 0.8392 - val_loss: 3.0773 - val_accuracy: 0.1267
+Epoch 15/20
+19/19 [==============================] - ETA: 0s - loss: 0.3816 - accuracy: 0.8233WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 0.3816 - accuracy: 0.8233 - val_loss: 2.2090 - val_accuracy: 0.2733
+Epoch 16/20
+19/19 [==============================] - ETA: 0s - loss: 0.3943 - accuracy: 0.8167WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 0.3943 - accuracy: 0.8167 - val_loss: 1.6179 - val_accuracy: 0.4233
+Epoch 17/20
+19/19 [==============================] - ETA: 0s - loss: 0.3480 - accuracy: 0.8575WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 0.3480 - accuracy: 0.8575 - val_loss: 1.5886 - val_accuracy: 0.4000
+Epoch 18/20
+19/19 [==============================] - ETA: 0s - loss: 0.4259 - accuracy: 0.8167WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 0.4259 - accuracy: 0.8167 - val_loss: 1.2955 - val_accuracy: 0.3733
+19/19 [==============================] - 20s 1s/step - loss: 0.3943 - accuracy: 0.8167 - val_loss: 1.6179 - val_accuracy: 0.4233
+Epoch 17/20                                   19/19 [==============================] - ETA: 0s - loss: 0.3480 - accuracy: 0.8575WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 0.3480 - accuracy: 0.8575 - val_loss: 1.5886 - val_accuracy: 0.4000
+Epoch 18/20                                   19/19 [==============================] - ETA: 0s - loss: 0.4259 - accuracy: 0.8167WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 20s 1s/step - loss: 0.3985 - accuracy: 0.8500 - val_loss: 2.5259 - val_accuracy: 0.14319/19 [==============================] - 20s 1s/step - loss: 0.3985 - accuracy: 0.8500 - val_loss: 2.5259 - val_accuracy: 0.1433
+Training completed...

@@ -10,4 +10,6 @@ dataset = {
     "validation_split": 0.2,
     "vertical_flip": True,
     "horizontal_flip": True,
+    "zoom_range": 0.4,
+    "samplewise_std_normalization": True
 }

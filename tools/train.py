@@ -19,6 +19,9 @@ def train(training_config):
     if training_config["model_config"] == "base":
         from config.models import base as model_base
         model_config = model_base.model
+    elif training_config["model_config"] == "simple_network":
+        from config.models import simple_network as network
+        model_config = network.model
     else:
         raise NotImplementedError
     

@@ -11,7 +11,9 @@ def generate_loaders(config):
     generator = ImageDataGenerator(
         validation_split = config["validation_split"],
         horizontal_flip = config["horizontal_flip"],
-        vertical_flip = config["vertical_flip"]
+        vertical_flip = config["vertical_flip"],
+        zoom_range = config["zoom_range"],
+        samplewise_std_normalization = config["samplewise_std_normalization"]
     )
     
     # defining training dataset

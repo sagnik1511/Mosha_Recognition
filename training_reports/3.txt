@@ -1,0 +1,20 @@
+{'seed': 42, 'dataset_config': 'base', 'model_config': 'simple_network', 'optimizer': 'adam', 'loss': 'categorical_crossentropy', 'metrics': ['accuracy'], 'max_epochs': 20, 'steps_per_epoch': None, 'verbose': 1, 'callbacks': [{'name': 'checkpoint', 'monitor': 'val_loss', 'save_best': True, 'save_weights': False, 'filepath': 'results/checkpoint'}, {'name': 'earlystop', 'monitor': 'val_loss', 'restore_best_weights': True, 'patience': 5}], 'result_figure_path': 'results/training_result.jpg'}
+{'metadata_path': 'dataset\\metadata.csv', 'seed': 42, 'x_id': 'path', 'y_id': 'species', 'data_root': 'dataset\\mosquito_dataset', 'batch_size': 64, 'height': 128, 'width': 128, 'validation_split': 0.2, 'vertical_flip': True, 'horizontal_flip': True, 'zoom_range': 0.4, 'samplewise_std_normalization': True}
+E:\cv_api\cv-env\lib\site-packages\keras\preprocessing\image.py:1304: UserWarning: This ImageDataGenerator specifies `samplewise_std_normalization`, which overrides setting of `samplewise_center`.
+  warnings.warn('This ImageDataGenerator specifies '
+Found 1200 validated image filenames belonging to 3 classes.
+Found 300 validated image filenames belonging to 3 classes.
+{'Aedes_aegypti': 0, 'Aedes_albopictus': 1, 'Culex_quinquefasciatus': 2}
+[['input', (128, 128, 3)], ['conv', [16, 7, 1, 'same', 'relu']], ['maxpool', [2]], ['conv', [32, 5, 1, 'same', 'relu']], ['maxpool', [2]], ['dropout', [0.4]], ['conv', [32, 3, 2, 'same', 'relu']], ['dropout', [0.2]], ['flatten'], ['dense', [512, 'relu']], ['dense', [3, 'softmax']]]
+2022-08-20 18:29:41.392091: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-08-20 18:29:41.392207: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-08-20 18:29:41.392747: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 22s 1s/step - loss: 0.7377 - accuracy: 0.6700 - val_loss: 1.6219 - val_accuracy: 0.2633Epoch 5/20
+19/19 [==============================] - ETA: 0s - loss: 0.6801 - accuracy: 0.7050WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 23s 1s/step - loss: 0.6801 - accuracy: 0.7050 - val_loss: 2.2463 - val_accuracy: 0.0700Epoch 6/20
+19/19 [==============================] - ETA: 0s - loss: 0.6599 - accuracy: 0.7133WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 3 of 3). These functions will not be directly callable after loading.
+19/19 [==============================] - 23s 1s/step - loss: 0.6599 - accuracy: 0.7133 - val_loss: 2.0485 - val_accuracy: 0.1633
+Training completed...
