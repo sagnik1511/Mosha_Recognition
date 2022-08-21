@@ -1,3 +1,4 @@
+import os
 import shutil
 import numpy as np
 from PIL import Image
@@ -9,20 +10,28 @@ MODEL = tf.keras.models.load_model("results/checkpoint")
 classes = ["Aedes_aegypti", "Aedes_albopictus", "Culex_quinquefasciatus"]
 app = FastAPI()
 
-@app.post("/")
+@app.post("/upload")
 def upload_image(image: UploadFile = File(...)):
 
     # fetching file extension
     ext = image.filename.split('.')[-1]
-    status = 202
     if ext in ["jpg", "png", "jpeg"]:
         # saving object in device memory
         with open(f"temp_image.{ext}", "wb") as buffer:
             shutil.copyfileobj(image.file, buffer)
             buffer.close()
-    else:
-        status = 404
-    return status
+        return [200, "File Uploaded"]
+    return [415, "Unsupported Media Format"]
+
+@app.post("/delete")
+def remove_image():
+
+    # checking whether image exists or not
+    if len(glob("temp_image*")) > 0:
+        os.remove(glob("temp_image*")[0])
+        return [200, "File Deleted"]
+    
+    return [404, "File Not Found"]
 
 @app.get("/predict")
 def predict():
@@ -35,7 +44,6 @@ def predict():
         probs = MODEL.predict(image)
         class_id = np.argmax(probs, 1).reshape(-1).astype("int64")[0]
         class_name = classes[class_id]
-        return {"class_name": class_name, "probability": probs[0][class_id] * 100.0}
-    else:
-        return {"No Image Found. Upload an Image to predict."}
+        return [200, {"class_name": class_name, "probability": probs[0][class_id] * 100.0}]
+    return [400, "No Image Found. Upload an Image to predict."]
     
